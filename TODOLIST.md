@@ -1,5 +1,5 @@
 TODOLIST:
-
+==========
 Frontend:
  - Refermer menu clic à côté
  - Alert() recherche
@@ -11,5 +11,5 @@ Backend:
  - Parsing
  - Scrapping allocine
 
- Others:
+Others:
  - Clean src
