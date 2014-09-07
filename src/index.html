@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>TV Show Manager</title>
+	<!-- <link rel="stylesheet" href="js/libs/bootstrap/dist/css/bootstrap.min.css"> -->
+	<!-- <link rel="stylesheet" href="js/libs/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/style2.css"> -->
+	<link rel="stylesheet" type="text/css" href="js/libs/fontawesome/css/font-awesome.min.css"/>
+</head>
+<body>
+	<header>
+		<div class="header-menubar">
+			<span id="menu-button" class="header-elem header-left"><i id="window-icon" class="fa fa-bars"></i></span>
+			<span id="window-title" class="header-elem header-center">TV Show Manager</span>
+<!-- 			<span id="window-buttons" class="header-elem header-right">
+				<span id="button-minimize" class="button-circle" onclick="win.minimize();"><span class="button-icon button-icon-minimize"><i class="fa fa-minus"></i></span></span>
+				<span id="button-maximize" class="button-circle" onclick="toggleMaximize()"><span class="button-icon button-icon-maximize"><i class="fa fa-plus"></i></span></span>
+				<span id="button-close" class="button-circle" onclick="window.close()"><span class="button-icon button-icon-close"><i class="fa fa-times"></i></span></span>
+			</span> -->
+			<span id="window-buttons" class="header-elem header-right">
+				<span id="button-minimize" class="window-button fa-stack" onclick="win.minimize();"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-minus fa-stack-1x"></i></span>
+				<span id="button-maximize" class="window-button fa-stack" onclick="toggleMaximize()"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-plus fa-stack-1x"></i></span>
+				<span id="button-close" class="window-button fa-stack" onclick="window.close()"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-times fa-stack-1x"></i></span>
+			</span>
+		</div>
+		<nav id="menu">
+			<div id="menu-search">
+				<input type="search" name="menu-search-input" id="menu-search-input" placeholder="Recherche...">
+				<i id="menu-search-button" class="fa fa-search"></i>
+			</div>
+			<ul id="menu-list">
+				<li id="menu-films" class="menu-item-1">Films
+					<ul>
+						<li id="menu-films-categories" class="menu-item-2">Catégoires</li>
+						<li id="menu-films-newests" class="menu-item-2">Récents</li>
+					</ul>
+				</li>
+				<li id="menu-series" class="menu-item-1">Séries
+					<ul>
+						<li id="menu-series-categories" class="menu-item-2">Catégoires</li>
+						<li id="menu-series-newests" class="menu-item-2">Récents</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<div class="site-content">
+		<div id="info">TEST</div>
+		<div class="navbar">
+			<span id="button-films" class="tabswitch-button" title="Films" onclick="toggleActiveTab('films')"><i class="fa fa-film"></i></span>
+			<span id="button-films-list" class="tabswitch-button active" title="Films-list" onclick="toggleActiveTab('films-list')"><i class="fa fa-film"></i></span>
+			<span id="button-series" class="tabswitch-button" title="Séries" onclick="toggleActiveTab('series')"><i class="fa fa-desktop"></i></span>
+			<span id="button-settings" class="tabswitch-button" title="Paramètres" onclick="toggleActiveTab('settings')"><i class="fa fa-sliders"></i></span>
+		</div>
+		<div id="content-films" class="container-body">
+			<script type="text/javascript">
+				for (var i = 1; i < 21; i++) {
+					var title = "Oblivion";
+					var imageUrl = "http://fr.web.img1.acsta.net/medias/nmedia/18/95/15/80/20495053.jpg";
+					document.write('<span class="film-thumbnail-container">');
+					document.write('<span class="overlay"><p>LOL</p></span>');
+					document.write('<span class="film-thumbnail active">');
+					document.write('<span class="poster">');
+					document.write('<img src="' + imageUrl + '" class="picture"></img>');
+					document.write('</span>');
+					document.write('<span class="title" title="' + title + '">' + title + '</span>');
+					document.write('</span>');
+					document.write('</span>');
+				}
+			</script>
+		</div>
+		<div id="content-films-list" class="container-body active">
+			{{#films}}
+			<span class="film-thumbnail-container">
+				<span class="overlay"><p>LOL</p></span>
+				<span class="film-thumbnail">
+					<span class="poster">
+						<img src="{{imageUrl}}" class="picture"></img>
+					</span>
+					<span class="title" title="{{title}}">{{title}}</span>
+				</span>
+			</span>
+			{{/films}}
+		</div>
+		<div id="content-series" class="container-body">
+			<span style="font-size: 2em">Séries</span>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, dicta et labore temporibus voluptates quae quia magnam natus ad culpa ipsum mollitia voluptatibus cupiditate voluptas suscipit odit nihil modi dignissimos.</div>
+			<div>Soluta quidem, itaque nihil, fuga vitae ipsum suscipit assumenda architecto tempora nostrum dolores voluptates. Iusto qui eius nobis reprehenderit doloremque, libero. Consequatur quod nam velit culpa, reprehenderit tempore alias ducimus.</div>
+			<div>Quam officiis accusamus illum quo aperiam, qui vitae illo quibusdam neque excepturi blanditiis quasi sed, reprehenderit optio deleniti, aliquam recusandae eos harum! Quis tempora illo quisquam adipisci aliquam. Excepturi, officia!</div>
+			<div>Illo autem repudiandae nihil architecto esse expedita id minima ipsum inventore accusantium! Nulla laboriosam illo explicabo aut consequatur. Adipisci iure ut quo sapiente animi suscipit ipsum, placeat porro explicabo nulla.</div>
+			<div>Expedita impedit ea, dolore repellendus sunt consequuntur dignissimos eaque quia aliquid, facilis, saepe ratione quam ex libero blanditiis hic error sapiente atque laboriosam, assumenda suscipit explicabo beatae officia ducimus. Corrupti.</div>
+			<div>Repellat dicta quisquam, iure saepe voluptas nemo quibusdam. Similique qui animi odit quaerat perferendis, repudiandae consequatur repellat eligendi, quas, nobis vitae nemo voluptatum illum. Reiciendis mollitia vitae facere rem fugit.</div>
+			<div>Culpa quo, facilis corrupti dolore nemo provident, quam maxime itaque laudantium libero cumque fuga laboriosam dicta aperiam nesciunt distinctio adipisci, iste in possimus accusamus eos. Quos voluptatum quo, laborum quaerat.</div>
+			<div>Ullam qui, cupiditate provident maxime tempora culpa alias perspiciatis, ex quia libero iste deserunt. Perspiciatis tenetur aut asperiores itaque mollitia repudiandae, minima nulla quae. Laudantium aperiam, distinctio ipsum sapiente? In.</div>
+			<div>Sequi numquam consequuntur esse explicabo. Harum, voluptas beatae sunt, eaque debitis culpa explicabo delectus aut molestiae itaque cum distinctio officia asperiores modi obcaecati praesentium odio iure nostrum ipsa laboriosam enim.</div>
+			<div>Illo aut dolorem, dicta cum, distinctio quaerat eos libero optio nesciunt. Perferendis quos, mollitia vitae ea natus saepe sequi reiciendis recusandae dolore, laborum praesentium id facilis modi soluta, suscipit. Itaque.</div>
+		</div>
+		<div id="content-settings" class="container-body">
+			<span style="font-size: 2em">Paramètres</span>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, dicta et labore temporibus voluptates quae quia magnam natus ad culpa ipsum mollitia voluptatibus cupiditate voluptas suscipit odit nihil modi dignissimos.</div>
+			<div>Soluta quidem, itaque nihil, fuga vitae ipsum suscipit assumenda architecto tempora nostrum dolores voluptates. Iusto qui eius nobis reprehenderit doloremque, libero. Consequatur quod nam velit culpa, reprehenderit tempore alias ducimus.</div>
+			<div>Quam officiis accusamus illum quo aperiam, qui vitae illo quibusdam neque excepturi blanditiis quasi sed, reprehenderit optio deleniti, aliquam recusandae eos harum! Quis tempora illo quisquam adipisci aliquam. Excepturi, officia!</div>
+			<div>Illo autem repudiandae nihil architecto esse expedita id minima ipsum inventore accusantium! Nulla laboriosam illo explicabo aut consequatur. Adipisci iure ut quo sapiente animi suscipit ipsum, placeat porro explicabo nulla.</div>
+			<div>Expedita impedit ea, dolore repellendus sunt consequuntur dignissimos eaque quia aliquid, facilis, saepe ratione quam ex libero blanditiis hic error sapiente atque laboriosam, assumenda suscipit explicabo beatae officia ducimus. Corrupti.</div>
+			<div>Repellat dicta quisquam, iure saepe voluptas nemo quibusdam. Similique qui animi odit quaerat perferendis, repudiandae consequatur repellat eligendi, quas, nobis vitae nemo voluptatum illum. Reiciendis mollitia vitae facere rem fugit.</div>
+			<div>Culpa quo, facilis corrupti dolore nemo provident, quam maxime itaque laudantium libero cumque fuga laboriosam dicta aperiam nesciunt distinctio adipisci, iste in possimus accusamus eos. Quos voluptatum quo, laborum quaerat.</div>
+			<div>Ullam qui, cupiditate provident maxime tempora culpa alias perspiciatis, ex quia libero iste deserunt. Perspiciatis tenetur aut asperiores itaque mollitia repudiandae, minima nulla quae. Laudantium aperiam, distinctio ipsum sapiente? In.</div>
+			<div>Sequi numquam consequuntur esse explicabo. Harum, voluptas beatae sunt, eaque debitis culpa explicabo delectus aut molestiae itaque cum distinctio officia asperiores modi obcaecati praesentium odio iure nostrum ipsa laboriosam enim.</div>
+			<div>Illo aut dolorem, dicta cum, distinctio quaerat eos libero optio nesciunt. Perferendis quos, mollitia vitae ea natus saepe sequi reiciendis recusandae dolore, laborum praesentium id facilis modi soluta, suscipit. Itaque.</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/libs/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="js/libs/mustache/mustache.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/parsedir.js"></script>
+	<script src="http://127.0.0.1:35729/livereload.js?snipver=1"></script>
+	<!-- <script type="text/javascript" src="js/libs/bootstrap/dist/js/bootstrap.min.js"></script> -->
+	<!-- <script type="text/javascript" src="js/libs/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script> -->
+</body>
+</html>

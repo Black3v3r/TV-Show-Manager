@@ -1,0 +1,84 @@
+@import "compass";
+@import "vars";
+@import "header";
+@import "view-films";
+
+body{
+	/*height: 100%;
+	width: 100%;*/
+	font-family: sans-serif;
+	background-color: $body-bg;
+	color: white;
+	-webkit-user-select: none;
+	font-size: 14px;
+}
+
+/* Boutons de navigation */
+
+.navbar {
+	display: block;
+	text-align: center;
+	margin: auto;
+	top: $header-menubar-height + 10px;
+	z-index: 1337;
+	position: fixed;
+	width: 100%;
+}
+
+.tabswitch-button{
+	color: white;
+	background-color: $body-bg;
+	padding: 4px 10px;
+	margin: 0;
+	border: 1px solid white;
+	margin-left: -5.5px;
+	cursor: pointer;
+	overflow: hidden;
+
+	&:first-child{
+		border-radius: 5px 0 0 5px;
+		margin-left: 0px!important;
+	}
+	&:last-child{
+		border-radius: 0 5px 5px 0;
+	}
+	&.active{
+		background-color: white;
+		color: $body-bg;
+	}
+}
+
+/* Corps de page */
+
+.site-content{
+	position: absolute;
+	top: $header-menubar-height;
+	left: 0; right: 0;
+	bottom: 0;
+	padding-top: 35px;
+	overflow: overlay;
+
+}
+
+.container-body{
+	position: relative;
+	display: none;
+	&.active{
+		display: block;
+	}
+}
+
+/* Tout le reste */
+[placeholder]:focus::-webkit-input-placeholder {
+	transition: opacity 0.5s ease;
+	opacity: 0;
+}
+
+#info{
+	background-color: #00f;
+	top:35px;
+	// float: right;
+	right: 0;
+	z-index: 1000;
+	position:fixed;
+}

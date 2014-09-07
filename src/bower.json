@@ -1,0 +1,24 @@
+{
+  "name": "TV Show Manager",
+  "version": "0.0.1",
+  "authors": [
+    "Black3v3r <black3v3r@gmail.com>"
+  ],
+  "description": "Manage your films and tv shows library",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "js/libs"
+  ],
+  "dependencies": {
+    "fontawesome": "~4.2.0",
+    "bootstrap": "~3.2.0",
+    "bootstrap-switch": "~3.0.2",
+    "mustache": "~0.8.2"
+  }
+}

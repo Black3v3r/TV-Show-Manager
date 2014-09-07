@@ -1,0 +1,52 @@
+.film-thumbnail-container{
+	// font-size: 3em;
+	// border: 1px solid #f00;
+	// background-color: red;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	display: inline-block;
+	height: 100%;
+	text-align: center;
+	width: 180px;
+	.film-thumbnail{
+		height: 100%;
+		width: 160px;
+		// background-color: red;
+		// outline: 1px solid #00f;
+		display: inline-block;
+		@include box-shadow(0px 0px 5px 0px #656565);
+		.poster{
+			.picture{
+				margin: auto;
+				height: 215px; width: 160px;
+				display: block;
+			}
+		}
+		.title{
+			background-color: lighten($body-bg, 5);
+			border-radius: 0 0 5px 5px;
+			padding: 5px;
+			display: block;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+	.overlay{
+		background-color: rgba(black, 0.18);
+		display: none;
+		z-index: 2;
+		// top: 10px;left: 10px;
+		// padding-top: 5px;
+		width: 160px; height: 244px;
+		position: absolute;
+		border-radius: 0 0 5px 5px;
+		@include box-shadow(0px 0px 5px 0px rgba(black, 0.18));
+	}
+	&:hover .overlay{
+		display: inline-block;
+	}
+	&:hover .picture{
+		@include filter(blur(5px));
+	}
+}
