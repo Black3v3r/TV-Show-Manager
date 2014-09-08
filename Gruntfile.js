@@ -80,7 +80,7 @@ module.exports = function(grunt){
 					{expand: true, cwd: 'src/', src: ['js/libs/**/*.min.*'], dest: '.build-cache/'},
 					{expand: true, cwd: 'src/', src: ['js/libs/mustache/mustache.js'], dest: '.build-cache/'},
 					{expand: true, cwd: 'src/', src: ['js/libs/fontawesome/fonts/**'], dest: '.build-cache/'},
-					// {expand: true, src: 'node_modules/jquery/**', dest: '.build-cache/'},
+					{expand: true, src: 'node_modules/allocine-api/**', dest: '.build-cache/'},
 					{expand: true, cwd: 'src/', src: ['locales/**'], dest: '.build-cache/'}
 
 				]

@@ -282,3 +282,7 @@ body {
   right: 0;
   z-index: 1000;
   position: fixed; }
+
+/* line 86, ../_sass/style.scss */
+.hidden {
+  display: none; }

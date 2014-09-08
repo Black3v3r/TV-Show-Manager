@@ -31,7 +31,7 @@ fs.exists(path.join(filmsFolder, 'library.json'), function(exists){
 		fs.readFile(path.join(filmsFolder, 'library.json'), 'utf-8', function(err, data){
 			if (err) throw err;
 			filmsList = JSON.parse(data);
-			$('#content-films-list').html(Mustache.render($('#content-films-list').html(), {films : filmsList}));
+			$('#content-films-list').html(Mustache.render($('#content-films-list').html(), {films : filmsList})).removeAttr('style');
 		});
 	} else {
 		refreshLibrary();
