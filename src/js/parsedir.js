@@ -15,4 +15,4 @@ for(var i in dirs){
 	filmsList[i] = {"title": dirs[i], "imageUrl" : "http://fr.web.img1.acsta.net/medias/nmedia/18/95/15/80/20495053.jpg"};
 }
 console.log(filmsList);
-$('#content-films-list').html(Mustache.render($('#content-films-list').html(), {films : filmsList}));
+//$('#content-films-list').html(Mustache.render($('#content-films-list').html(), {films : filmsList}));

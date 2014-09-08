@@ -25,7 +25,7 @@
 				<span id="button-close" class="window-button fa-stack" onclick="window.close()"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-times fa-stack-1x"></i></span>
 			</span>
 		</div>
-		<nav id="menu">
+		<nav id="menu" onblur="$('body').toggleClass('menu-open');">
 			<div id="menu-search">
 				<input type="search" name="menu-search-input" id="menu-search-input" placeholder="Recherche...">
 				<i id="menu-search-button" class="fa fa-search"></i>
