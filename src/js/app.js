@@ -23,6 +23,10 @@ $('#menu-button').click(function(e){
 	e.preventDefault();
 	$('body').toggleClass('menu-open');
 });
+$('#menu').blur(function(e){
+	e.preventDefault();
+	$('#info').html('menu-open');
+});
 
 $(window).resize(function() {
 	// calculateThumbnailMargin();

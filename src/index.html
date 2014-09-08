@@ -25,7 +25,7 @@
 				<span id="button-close" class="window-button fa-stack" onclick="window.close()"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-times fa-stack-1x"></i></span>
 			</span>
 		</div>
-		<nav id="menu" onblur="$('body').toggleClass('menu-open');">
+		<nav id="menu">
 			<div id="menu-search">
 				<input type="search" name="menu-search-input" id="menu-search-input" placeholder="Recherche...">
 				<i id="menu-search-button" class="fa fa-search"></i>
@@ -50,7 +50,8 @@
 		<div id="info">TEST</div>
 		<div class="navbar">
 			<span id="button-films" class="tabswitch-button" title="Films" onclick="toggleActiveTab('films')"><i class="fa fa-film"></i></span>
-			<span id="button-films-list" class="tabswitch-button active" title="Films-list" onclick="toggleActiveTab('films-list')"><i class="fa fa-film"></i></span>
+			<span id="button-films-list" class="tabswitch-button" title="Films-list" onclick="toggleActiveTab('films-list')"><i class="fa fa-film"></i></span>
+			<span id="button-allocine" class="tabswitch-button active" title="Allociné" onclick="toggleActiveTab('allocine')"><i class="fa fa-circle"></i></span>
 			<span id="button-series" class="tabswitch-button" title="Séries" onclick="toggleActiveTab('series')"><i class="fa fa-desktop"></i></span>
 			<span id="button-settings" class="tabswitch-button" title="Paramètres" onclick="toggleActiveTab('settings')"><i class="fa fa-sliders"></i></span>
 		</div>
@@ -71,7 +72,7 @@
 				}
 			</script>
 		</div>
-		<div id="content-films-list" class="container-body active">
+		<div id="content-films-list" class="container-body">
 			{{#films}}
 			<span class="film-thumbnail-container">
 				<span class="overlay"><p>LOL</p></span>
@@ -110,6 +111,10 @@
 			<div>Ullam qui, cupiditate provident maxime tempora culpa alias perspiciatis, ex quia libero iste deserunt. Perspiciatis tenetur aut asperiores itaque mollitia repudiandae, minima nulla quae. Laudantium aperiam, distinctio ipsum sapiente? In.</div>
 			<div>Sequi numquam consequuntur esse explicabo. Harum, voluptas beatae sunt, eaque debitis culpa explicabo delectus aut molestiae itaque cum distinctio officia asperiores modi obcaecati praesentium odio iure nostrum ipsa laboriosam enim.</div>
 			<div>Illo aut dolorem, dicta cum, distinctio quaerat eos libero optio nesciunt. Perferendis quos, mollitia vitae ea natus saepe sequi reiciendis recusandae dolore, laborum praesentium id facilis modi soluta, suscipit. Itaque.</div>
+		</div>
+		<div id="content-allocine" class="container-body active">
+			<h1>LOL</h1>
+			<button onclick="allocineSearch()">Rechercher</button>
 		</div>
 	</div>
 	<script type="text/javascript" src="js/libs/jquery/dist/jquery.min.js"></script>
