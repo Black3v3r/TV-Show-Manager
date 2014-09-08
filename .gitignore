@@ -228,4 +228,4 @@ cache
 dist
 *.sublime*
 node_modules
-js/libs
+js/libs/
