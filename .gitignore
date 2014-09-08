@@ -224,6 +224,7 @@ node_modules/
 Project only
 #################
 .sass-cache
+.build-cache
 cache
 dist
 *.sublime*
