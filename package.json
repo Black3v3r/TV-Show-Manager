@@ -4,6 +4,7 @@
   "description": "",
   "main": "Gruntfile.js",
   "devDependencies": {
+    "allocine-api": "^0.1.6",
     "compass": "^0.1.0",
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",
