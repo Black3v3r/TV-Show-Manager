@@ -1,7 +1,3 @@
- /* requiring */
-var gui = require('nw.gui');
-// var $ = require('jquery');
-
 /* Globals */
 var win = gui.Window.get();
 var isMaximized = false;
@@ -28,6 +24,22 @@ $('#menu').blur(function(e){
 	$('#info').html('menu-open');
 });
 
+$('.menu-item-1').click(function(e){
+	e.stopPropagation();
+    $(this).children('ul').slideToggle();
+    $(this).children('i').toggleClass('fa-rotate-90');
+    toggleActiveTab($(this).attr('tab'));
+});
+$('.menu-item-1 *').click(function(event) {
+	event.stopPropagation();
+});
+
+var mousePos = { x: -1, y: -1 };
+$(document).mousemove(function(event) {
+	mousePos.x = event.pageX;
+	mousePos.y = event.pageY;
+});
+
 $(window).resize(function() {
 	// calculateThumbnailMargin();
 });
@@ -48,37 +60,4 @@ function toggleActiveTab(elem) {
 	$('.container-body').removeClass('active');
 	$('#button-' + elem).addClass('active');
 	$('#content-' + elem).addClass('active');
-	// $('.film-thumbnail-container .overlay').height($('.film-thumbnail').height());
 }
-
-/*function calculateThumbnailMargin() {
-	// var thumbWidth = ($('.film-thumbnail-container')[0]).width();
-	console.log($('.film-thumbnail-container'));
-	var thumbWidth = 184;
-	console.log("++++++++++++++++++++++++++");
-	console.log(($('.film-thumbnail-container')[0]));
-	console.log("++++++++++++++++++++++++++");
-	console.log("thumbWidth: " + thumbWidth);
-	// console.log("width: " + $(window).width() + " height: " + $(window).height());
-	var ww = $(window).width();
-	console.log(ww);
-	var thumbs = $('.film-thumbnail-container');
-	console.log(thumbs);
-	for(var j = 0; j<20; j++){
-		console.log(thumbs[j].offsetTop);
-	}
-	var i = 0;
-	var thumbsInRow = 0;
-	while(thumbs[thumbsInRow].offsetTop === 15 || thumbs[thumbsInRow].offsetTop === 0)
-		thumbsInRow++;
-	console.log("ROW: " + thumbsInRow);
-	var marginRest = ww - (thumbsInRow * thumbWidth + (thumbsInRow - 1) * 5);
-	var marginRestPerThumb = marginRest / thumbsInRow;
-	$('#info').width(marginRest).html(marginRest + 'px');
-	if (marginRest < thumbWidth+4.5) {
-		thumbs.css({ 'margin-left' : marginRestPerThumb / 2, 'margin-right' : marginRestPerThumb / 2 });
-	} else {
-		thumbs.css({ 'margin-left' : 0, 'margin-right' : 0 });
-
-	}
-}*/

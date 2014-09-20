@@ -17,7 +17,7 @@
     "load-grunt-tasks": "^0.6.0"
   },
   "dependencies": {
-    "allocine-api": "^0.1.6",
-    "jquery": "^2.1.1"
+    "jquery": "^2.1.1",
+    "tmdb-3": "0.0.8"
   }
 }

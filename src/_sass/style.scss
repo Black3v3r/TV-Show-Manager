@@ -2,6 +2,7 @@
 @import "vars";
 @import "header";
 @import "view-films";
+@import "films-detail";
 
 body{
 	/*height: 100%;
@@ -11,6 +12,7 @@ body{
 	color: white;
 	-webkit-user-select: none;
 	font-size: 14px;
+	cursor: default;
 }
 
 /* Boutons de navigation */
@@ -20,7 +22,7 @@ body{
 	text-align: center;
 	margin: auto;
 	top: $header-menubar-height + 10px;
-	z-index: 1337;
+	z-index: 500;
 	position: fixed;
 	width: 100%;
 }
@@ -78,8 +80,8 @@ body{
 	background-color: #00f;
 	top:35px;
 	// float: right;
-	right: 0;
-	z-index: 1000;
+	right: 250px;
+	z-index: 1337;
 	position:fixed;
 }
 

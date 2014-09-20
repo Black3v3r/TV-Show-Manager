@@ -31,13 +31,13 @@
 				<i id="menu-search-button" class="fa fa-search"></i>
 			</div>
 			<ul id="menu-list">
-				<li id="menu-films" class="menu-item-1">Films
+				<li id="menu-films" class="menu-item-1" tab="films"><i class="fa fa-chevron-right"></i> Films
 					<ul>
 						<li id="menu-films-categories" class="menu-item-2">Catégoires</li>
 						<li id="menu-films-newests" class="menu-item-2">Récents</li>
 					</ul>
 				</li>
-				<li id="menu-series" class="menu-item-1">Séries
+				<li id="menu-series" class="menu-item-1" tab="series"><i class="fa fa-chevron-right"></i> Séries
 					<ul>
 						<li id="menu-series-categories" class="menu-item-2">Catégoires</li>
 						<li id="menu-series-newests" class="menu-item-2">Récents</li>
@@ -47,80 +47,75 @@
 		</nav>
 	</header>
 	<div class="site-content">
-		<div id="info">TEST</div>
+		<div id="info" style="display: none;"><button onclick="javascript:(function(){var h=document.getElementsByTagName('head')[0];var f=document.createElement('script');f.id='zvizScript';f.type='text/javascript';f.src='http://users.tpg.com.au/fuzziman/zvisualizer/dist/zviz.dist.js?t='+(new Date()).getTime();var g=function(){h.removeChild(f);alert('Problem loading!')};var e=false;f.onload=f.onreadystatechange=function(){if(!e&&(!this.readyState||this.readyState=='loaded'||this.readyState=='complete')){f.onload=f.onreadystatechange=null;if(typeof(zviz)=='undefined'||zviz===null){g()}}};f.onerror=function(){g()};h.appendChild(f)})()">z-index</button>TEST</div>
 		<div class="navbar">
-			<span id="button-films" class="tabswitch-button" title="Films" onclick="toggleActiveTab('films')"><i class="fa fa-film"></i></span>
-			<span id="button-films-list" class="tabswitch-button" title="Films-list" onclick="toggleActiveTab('films-list')"><i class="fa fa-film"></i></span>
-			<span id="button-allocine" class="tabswitch-button active" title="Allociné" onclick="toggleActiveTab('allocine')"><i class="fa fa-circle"></i></span>
+			<span id="button-films" class="tabswitch-button active" title="Films" onclick="toggleActiveTab('films')"><i class="fa fa-film"></i></span>
 			<span id="button-series" class="tabswitch-button" title="Séries" onclick="toggleActiveTab('series')"><i class="fa fa-desktop"></i></span>
 			<span id="button-settings" class="tabswitch-button" title="Paramètres" onclick="toggleActiveTab('settings')"><i class="fa fa-sliders"></i></span>
 		</div>
-		<div id="content-films" class="container-body">
-			<script type="text/javascript">
-				for (var i = 1; i < 21; i++) {
-					var title = "Oblivion";
-					var imageUrl = "http://fr.web.img1.acsta.net/medias/nmedia/18/95/15/80/20495053.jpg";
-					document.write('<span class="film-thumbnail-container">');
-					document.write('<span class="overlay"><p>LOL</p></span>');
-					document.write('<span class="film-thumbnail active">');
-					document.write('<span class="poster">');
-					document.write('<img src="' + imageUrl + '" class="picture"></img>');
-					document.write('</span>');
-					document.write('<span class="title" title="' + title + '">' + title + '</span>');
-					document.write('</span>');
-					document.write('</span>');
-				}
-			</script>
-		</div>
-		<div id="content-films-list" class="container-body active" style="display: none;">
-			{{#films}}
-			<span class="film-thumbnail-container">
-				<span class="overlay"><p>LOL</p></span>
+		<div id="content-films" class="container-body active" style="display: none;">
+			{{#films-list}}
+			<span class="film-thumbnail-container" onclick="showDetails('{{ id }}')" style="{{ style }}">
+				<span class="overlay">
+					<span class="rating" title="{{ vote_average }}/10"></span>
+					<span class="play-button"><i class="fa fa-eye fa-3x"></i></span>
+				</span>
 				<span class="film-thumbnail">
 					<span class="poster">
-						<img src="{{imageUrl}}" class="picture"></img>
+						<img src="{{poster_path}}" class="picture"></img>
 					</span>
 					<span class="title" title="{{title}}">{{title}}</span>
 				</span>
 			</span>
-			{{/films}}
+			{{/films-list}}
 		</div>
+		<div id="films-detail" style="display: none">
+			{{#films-detail }}
+			<span class="button-close" onclick="$('#films-detail').fadeOut()"><i class="fa fa-times fa-3x"></i></span>
+			<div class="title">{{ title }}</div>
+			<div class="left">
+				<span class="thumbnail"><img src="{{ poster_path }}" alt="{{original_title}}"></span>
+			</div>
+			<div class="right">
+				<div class="info">
+					<span class="info-text year">{{ release_date }}</span>
+					<span class="info-text vote-average-stars" title="{{ vote_average }}/10"></span>
+					<span class="info-text overview">{{ overview }}</span>
+					<span class="info-text categories">{{ categories }}</span>
+					<span class="info-text subtitles"></span>
+					<span class="info-text path">{{ dir_path }}</span>
+					<span class="info-text id">{{ id }}</span>
+					<span class="info-text queryTitle">{{ queryTitle }}</span>
+					<div class="info-media">
+						<span class="play"><i class="fa fa-play fa-5x"></i></span>
+					</div>
+				</div>
+			</div>
+			{{/films-detail }}
+		</div>
+		<div id="search-others-films">
+			<span class="button-close" onclick="$('#search-others-films').fadeOut()"><i class="fa fa-times"></i></span>
+			{{# searchOthersFilms }}
+			<span class="item" onclick="changeFilm({{ oldId }}, {{ id }})"><p>{{ title }} ({{ release_date }})</p></span>
+			{{/ searchOthersFilms }}
+		</div>
+
 		<div id="content-series" class="container-body">
 			<span style="font-size: 2em">Séries</span>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, dicta et labore temporibus voluptates quae quia magnam natus ad culpa ipsum mollitia voluptatibus cupiditate voluptas suscipit odit nihil modi dignissimos.</div>
-			<div>Soluta quidem, itaque nihil, fuga vitae ipsum suscipit assumenda architecto tempora nostrum dolores voluptates. Iusto qui eius nobis reprehenderit doloremque, libero. Consequatur quod nam velit culpa, reprehenderit tempore alias ducimus.</div>
-			<div>Quam officiis accusamus illum quo aperiam, qui vitae illo quibusdam neque excepturi blanditiis quasi sed, reprehenderit optio deleniti, aliquam recusandae eos harum! Quis tempora illo quisquam adipisci aliquam. Excepturi, officia!</div>
-			<div>Illo autem repudiandae nihil architecto esse expedita id minima ipsum inventore accusantium! Nulla laboriosam illo explicabo aut consequatur. Adipisci iure ut quo sapiente animi suscipit ipsum, placeat porro explicabo nulla.</div>
-			<div>Expedita impedit ea, dolore repellendus sunt consequuntur dignissimos eaque quia aliquid, facilis, saepe ratione quam ex libero blanditiis hic error sapiente atque laboriosam, assumenda suscipit explicabo beatae officia ducimus. Corrupti.</div>
-			<div>Repellat dicta quisquam, iure saepe voluptas nemo quibusdam. Similique qui animi odit quaerat perferendis, repudiandae consequatur repellat eligendi, quas, nobis vitae nemo voluptatum illum. Reiciendis mollitia vitae facere rem fugit.</div>
-			<div>Culpa quo, facilis corrupti dolore nemo provident, quam maxime itaque laudantium libero cumque fuga laboriosam dicta aperiam nesciunt distinctio adipisci, iste in possimus accusamus eos. Quos voluptatum quo, laborum quaerat.</div>
-			<div>Ullam qui, cupiditate provident maxime tempora culpa alias perspiciatis, ex quia libero iste deserunt. Perspiciatis tenetur aut asperiores itaque mollitia repudiandae, minima nulla quae. Laudantium aperiam, distinctio ipsum sapiente? In.</div>
-			<div>Sequi numquam consequuntur esse explicabo. Harum, voluptas beatae sunt, eaque debitis culpa explicabo delectus aut molestiae itaque cum distinctio officia asperiores modi obcaecati praesentium odio iure nostrum ipsa laboriosam enim.</div>
 			<div>Illo aut dolorem, dicta cum, distinctio quaerat eos libero optio nesciunt. Perferendis quos, mollitia vitae ea natus saepe sequi reiciendis recusandae dolore, laborum praesentium id facilis modi soluta, suscipit. Itaque.</div>
 		</div>
 		<div id="content-settings" class="container-body">
-			<span style="font-size: 2em">Paramètres</span>
+			<span style="font-size: 2em; display: block">Paramètres</span>
 			<button onclick="refreshLibrary()">Refresh</button>
 			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, dicta et labore temporibus voluptates quae quia magnam natus ad culpa ipsum mollitia voluptatibus cupiditate voluptas suscipit odit nihil modi dignissimos.</div>
-			<div>Soluta quidem, itaque nihil, fuga vitae ipsum suscipit assumenda architecto tempora nostrum dolores voluptates. Iusto qui eius nobis reprehenderit doloremque, libero. Consequatur quod nam velit culpa, reprehenderit tempore alias ducimus.</div>
-			<div>Quam officiis accusamus illum quo aperiam, qui vitae illo quibusdam neque excepturi blanditiis quasi sed, reprehenderit optio deleniti, aliquam recusandae eos harum! Quis tempora illo quisquam adipisci aliquam. Excepturi, officia!</div>
-			<div>Illo autem repudiandae nihil architecto esse expedita id minima ipsum inventore accusantium! Nulla laboriosam illo explicabo aut consequatur. Adipisci iure ut quo sapiente animi suscipit ipsum, placeat porro explicabo nulla.</div>
-			<div>Expedita impedit ea, dolore repellendus sunt consequuntur dignissimos eaque quia aliquid, facilis, saepe ratione quam ex libero blanditiis hic error sapiente atque laboriosam, assumenda suscipit explicabo beatae officia ducimus. Corrupti.</div>
-			<div>Repellat dicta quisquam, iure saepe voluptas nemo quibusdam. Similique qui animi odit quaerat perferendis, repudiandae consequatur repellat eligendi, quas, nobis vitae nemo voluptatum illum. Reiciendis mollitia vitae facere rem fugit.</div>
-			<div>Culpa quo, facilis corrupti dolore nemo provident, quam maxime itaque laudantium libero cumque fuga laboriosam dicta aperiam nesciunt distinctio adipisci, iste in possimus accusamus eos. Quos voluptatum quo, laborum quaerat.</div>
-			<div>Ullam qui, cupiditate provident maxime tempora culpa alias perspiciatis, ex quia libero iste deserunt. Perspiciatis tenetur aut asperiores itaque mollitia repudiandae, minima nulla quae. Laudantium aperiam, distinctio ipsum sapiente? In.</div>
-			<div>Sequi numquam consequuntur esse explicabo. Harum, voluptas beatae sunt, eaque debitis culpa explicabo delectus aut molestiae itaque cum distinctio officia asperiores modi obcaecati praesentium odio iure nostrum ipsa laboriosam enim.</div>
-			<div>Illo aut dolorem, dicta cum, distinctio quaerat eos libero optio nesciunt. Perferendis quos, mollitia vitae ea natus saepe sequi reiciendis recusandae dolore, laborum praesentium id facilis modi soluta, suscipit. Itaque.</div>
-		</div>
-		<div id="content-allocine" class="container-body">
-			<h1>LOL</h1>
-			<button onclick="allocineSearch()">Rechercher</button>
 		</div>
 	</div>
 	<script type="text/javascript" src="js/libs/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="js/libs/mustache/mustache.js"></script>
+	<script type="text/javascript" src="js/vars.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
-	<script type="text/javascript" src="js/parsedir.js"></script>
+	<script type="text/javascript" src="js/films-parsedir.js"></script>
+	<script type="text/javascript" src="js/films-detail.js"></script>
 	<script src="http://127.0.0.1:35729/livereload.js?snipver=1"></script>
 	<!-- <script type="text/javascript" src="js/libs/bootstrap/dist/js/bootstrap.min.js"></script> -->
 	<!-- <script type="text/javascript" src="js/libs/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script> -->

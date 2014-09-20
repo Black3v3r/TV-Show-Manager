@@ -6,8 +6,11 @@
 	margin-bottom: 5px;
 	display: inline-block;
 	height: 100%;
+	// height: 242px;
 	text-align: center;
 	width: 180px;
+	overflow: hidden;
+	position: relative;
 	.film-thumbnail{
 		height: 100%;
 		width: 160px;
@@ -17,6 +20,7 @@
 		@include box-shadow(0px 0px 5px 0px #656565);
 		.poster{
 			.picture{
+				border-radius: 5px 5px 0;
 				margin: auto;
 				height: 215px; width: 160px;
 				display: block;
@@ -24,29 +28,51 @@
 		}
 		.title{
 			background-color: lighten($body-bg, 5);
-			border-radius: 0 0 5px 5px;
 			padding: 5px;
 			display: block;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
+			border-radius: 0 0 5px 5px;
 		}
 	}
 	.overlay{
-		background-color: rgba(black, 0.18);
-		display: none;
+
+		background-color: rgba(black, 0.55);
+		// display: none;
+		margin-top: 244px;
+		margin-left: 10px;
 		z-index: 2;
-		// top: 10px;left: 10px;
+		top: 0;left: 0;
 		// padding-top: 5px;
-		width: 160px; height: 244px;
+		width: 160px; height: 242px;
 		position: absolute;
-		border-radius: 0 0 5px 5px;
+		// top: 0;left: 10;
+		display: block;
+		border-radius: 5px;
 		@include box-shadow(0px 0px 5px 0px rgba(black, 0.18));
+		.rating{
+			display: block;
+			margin-top: 10px;
+			font-size: 1.5em;
+			color: #777;
+			.fa-star{
+				color: #fc0;
+			}
+		}
+		.play-button{
+			font-size: 1.5em;
+			display: block;
+			margin-top: 50px;
+		}
+
 	}
 	&:hover .overlay{
-		display: inline-block;
+		// display: inline-block;
+		-webkit-transition: margin-top 0.6s ease;
+		margin-top: 0;
 	}
 	&:hover .picture{
-		@include filter(blur(5px));
+		// @include filter(blur(5px));
 	}
 }

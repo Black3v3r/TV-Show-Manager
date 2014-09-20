@@ -6,7 +6,7 @@ header{
 }
 
 .header-menubar{
-	z-index: 999;
+	z-index: 1000;
 	position: fixed;
 	top: 0; left: 0; right: 0;
 	height: $header-menubar-height;
@@ -95,7 +95,7 @@ header{
 
 #menu{
 	position: fixed;
-	z-index: 998;
+	z-index: 800;
 	top: $header-menubar-height; bottom: 0;
 	// float: left;
 	left: 0;
@@ -136,6 +136,18 @@ header{
 		top: 9px; right: 16px;
 		opacity: 0.8;
 		cursor: pointer;
+	}
+}
+
+#menu-list{
+	*{
+		margin: 5px auto;
+		list-style-type: none;
+	}
+	.menu-item-1{
+		ul{
+			display: none;
+		}
 	}
 }
 

@@ -1,10 +1,12 @@
 {
 	"name" : "TV Show Manager",
-	"version" : "0.0.1",
+	"version" : "0.1.0",
 	"main" : "index.html",
 	"window" : {
 		"width"   : 1000,
+    	"min_width": 990,
 		"height"  : 700,
+    	"min_height": 556,
 		"toolbar" : true,
 		"frame"   : true
 	}
