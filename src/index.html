@@ -55,7 +55,7 @@
 		</div>
 		<div id="content-films" class="container-body active" style="display: none;">
 			{{#films-list}}
-			<span class="film-thumbnail-container" onclick="showDetails('{{ id }}')" style="{{ style }}">
+			<span class="film-thumbnail-container" onclick="showDetails('{{ id }}')">
 				<span class="overlay">
 					<span class="rating" title="{{ vote_average }}/10"></span>
 					<span class="play-button"><i class="fa fa-eye fa-3x"></i></span>
@@ -81,7 +81,7 @@
 					<span class="info-text year">{{ release_date }}</span>
 					<span class="info-text vote-average-stars" title="{{ vote_average }}/10"></span>
 					<span class="info-text overview">{{ overview }}</span>
-					<span class="info-text categories">{{ categories }}</span>
+					<span class="info-text categories"></span>
 					<span class="info-text subtitles"></span>
 					<span class="info-text path">{{ dir_path }}</span>
 					<span class="info-text id">{{ id }}</span>

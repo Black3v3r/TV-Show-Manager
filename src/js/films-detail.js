@@ -16,10 +16,10 @@ function showDetails(filmId){
 	console.log(currentFilm);
 	$('#films-detail').html(Mustache.render(filmsDetails_template, {'films-detail' : currentFilm}));
 	for(var i = 1; i <= Math.round(currentFilm.vote_average / 2); i++){
-		$('#films-detail .vote-average-stars').html($('#films-detail .vote-average-stars').html() + '<i class="fa fa-star"></i>');
+		$('#films-detail .vote-average-stars').append('<i class="fa fa-star"></i>');
 	}
 	for(i; i <= 5; i++){
-		$('#films-detail .vote-average-stars').html($('#films-detail .vote-average-stars').html() + '<i class="fa fa-star-o"></i>');
+		$('#films-detail .vote-average-stars').append('<i class="fa fa-star-o"></i>');
 	}
 	$('#films-detail').fadeIn();
 }
