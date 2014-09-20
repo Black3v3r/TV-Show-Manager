@@ -95,7 +95,7 @@ header {
   bottom: 0;
   left: 0;
   width: 250px;
-  background-color: #014661;
+  background-color: rgba(1, 70, 97, 0.75);
   -moz-box-shadow: 6px 0px 11px 0px rgba(50, 50, 50, 0.61);
   -webkit-box-shadow: 6px 0px 11px 0px rgba(50, 50, 50, 0.61);
   box-shadow: 6px 0px 11px 0px rgba(50, 50, 50, 0.61);
@@ -301,14 +301,21 @@ header {
       /* line 61, ../_sass/_films-detail.scss */
       #films-detail .info-text.vote-average-stars .fa-star {
         color: #fc0; }
-  /* line 66, ../_sass/_films-detail.scss */
+  /* line 67, ../_sass/_films-detail.scss */
+  #films-detail .categories i {
+    padding-right: 5px; }
+  /* line 70, ../_sass/_films-detail.scss */
+  #films-detail .categories .category:hover {
+    border-bottom: 1px dotted;
+    cursor: pointer; }
+  /* line 75, ../_sass/_films-detail.scss */
   #films-detail .info-media {
     text-align: center; }
-  /* line 69, ../_sass/_films-detail.scss */
+  /* line 78, ../_sass/_films-detail.scss */
   #films-detail .play {
     cursor: pointer; }
 
-/* line 74, ../_sass/_films-detail.scss */
+/* line 83, ../_sass/_films-detail.scss */
 #search-others-films {
   display: none;
   background-color: rgba(119, 119, 119, 0.87);
@@ -325,14 +332,14 @@ header {
   height: 600px;
   max-height: 80%;
   overflow-y: auto; }
-  /* line 87, ../_sass/_films-detail.scss */
+  /* line 96, ../_sass/_films-detail.scss */
   #search-others-films .item {
     background-color: #000;
     display: block;
     margin: 10px;
     padding: 10px;
     cursor: pointer; }
-  /* line 94, ../_sass/_films-detail.scss */
+  /* line 103, ../_sass/_films-detail.scss */
   #search-others-films .button-close {
     cursor: pointer; }
 

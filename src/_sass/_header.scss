@@ -101,7 +101,7 @@ header{
 	left: 0;
 	width: $nav-menu-width;
 	// height: 100%;
-	background-color: darken($body-bg, 5);
+	background-color: rgba(darken($body-bg, 5), 0.75);
 	@include box-shadow(6px 0px 11px 0px rgba(50, 50, 50, 0.61));
 	@include transition(all 0.5s ease-in-out);
 	@include transform(translateX($nav-menu-width * -1));

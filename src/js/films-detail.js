@@ -21,6 +21,10 @@ function showDetails(filmId){
 	for(i; i <= 5; i++){
 		$('#films-detail .vote-average-stars').append('<i class="fa fa-star-o"></i>');
 	}
+	$.each(currentFilm.genres, function(i, v){
+		console.log(v.name);
+		$('#films-detail .categories').append('<span class="category"><i class="fa fa-tag"></i>' + v.name + '</span>');
+	});
 	$('#films-detail').fadeIn();
 }
 // Create an empty menu
