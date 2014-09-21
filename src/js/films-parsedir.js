@@ -44,7 +44,7 @@ fs.exists(path.join(filmsFolder, 'library.json'), function(exists){
 				if (filmsList[film].hidden) {
 					console.log(filmsList[film].title + ": hidden");
 					console.log($('.film-thumbnail-container').eq(film));
-					$('.film-thumbnail-container').eq(film).hide();
+					$('.film-thumbnail-container').eq(film).remove();
 				}
 			}
 		});
