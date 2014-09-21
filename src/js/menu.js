@@ -1,8 +1,9 @@
 $('#menu-button').click(function(e){
 	e.preventDefault();
+	$('#films-detail').fadeOut();
 	$('body').toggleClass(function(){
 		console.log($('body').hasClass('menu-open').toString());
-		if ($(this).hasClass('menu-open') == false) {
+		if ($(this).hasClass('menu-open') === false) {
 			$('#menu-search-input').focus();
 		}
 		return 'menu-open';
