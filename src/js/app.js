@@ -3,8 +3,13 @@ var win = gui.Window.get();
 var isMaximized = false;
 
 /* Thigns to do once */
-// calculateThumbnailMargin();
-// $('.film-thumbnail-container .overlay').height($('.film-thumbnail').height());
+
+fs.readFile('config/config.json', 'utf-8', function(err, data){
+	if (err) throw err;
+	config = JSON.parse(data);
+	console.log(config);
+	films.parseDir();
+});
 
 
 /* init routines/watchers/listeners */
