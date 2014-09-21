@@ -2,13 +2,10 @@ TODOLIST:
 ==========
 Frontend:
  - Refermer menu clic à côté
- - Alert() recherche
  - Scrollbar
  - taskbar
 
 Backend:
- - Parsing
- - Scrapping TVDB
  - Config files
 
 Others:
