@@ -305,17 +305,20 @@ header {
   #films-detail .categories i {
     padding-right: 5px; }
   /* line 70, ../_sass/_films-detail.scss */
-  #films-detail .categories .category:hover {
-    border-bottom: 1px dotted;
-    cursor: pointer; }
-  /* line 75, ../_sass/_films-detail.scss */
+  #films-detail .categories .category {
+    margin-right: 5px; }
+    /* line 72, ../_sass/_films-detail.scss */
+    #films-detail .categories .category:hover {
+      border-bottom: 1px dotted;
+      cursor: pointer; }
+  /* line 78, ../_sass/_films-detail.scss */
   #films-detail .info-media {
     text-align: center; }
-  /* line 78, ../_sass/_films-detail.scss */
+  /* line 81, ../_sass/_films-detail.scss */
   #films-detail .play {
     cursor: pointer; }
 
-/* line 83, ../_sass/_films-detail.scss */
+/* line 86, ../_sass/_films-detail.scss */
 #search-others-films {
   display: none;
   background-color: rgba(119, 119, 119, 0.87);
@@ -332,14 +335,14 @@ header {
   height: 600px;
   max-height: 80%;
   overflow-y: auto; }
-  /* line 96, ../_sass/_films-detail.scss */
+  /* line 99, ../_sass/_films-detail.scss */
   #search-others-films .item {
     background-color: #000;
     display: block;
     margin: 10px;
     padding: 10px;
     cursor: pointer; }
-  /* line 103, ../_sass/_films-detail.scss */
+  /* line 106, ../_sass/_films-detail.scss */
   #search-others-films .button-close {
     cursor: pointer; }
 

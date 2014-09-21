@@ -67,9 +67,12 @@
 		i{
 			padding-right: 5px;
 		}
-		.category:hover{
-			border-bottom: 1px dotted;
-			cursor: pointer;
+		.category{
+			margin-right: 5px;
+			&:hover{
+				border-bottom: 1px dotted;
+				cursor: pointer;
+			}
 		}
 	}
 	.info-media{
