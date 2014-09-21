@@ -55,7 +55,7 @@
 		</div>
 		<div id="content-films" class="container-body active" style="display: none;">
 			{{#films-list}}
-			<span class="film-thumbnail-container" onclick="showDetails('{{ id }}')">
+			<span class="film-thumbnail-container" onclick="films.showDetails('{{ id }}')">
 				<span class="overlay">
 					<span class="rating" title="{{ vote_average }}/10"></span>
 					<span class="play-button"><i class="fa fa-eye fa-3x"></i></span>
@@ -106,7 +106,8 @@
 		</div>
 		<div id="content-settings" class="container-body">
 			<span style="font-size: 2em; display: block">Paramètres</span>
-			<button onclick="refreshLibrary()">Refresh</button>
+			<button onclick="refreshLibrary()">Refresh</button><br>
+			<input type="file" name="" id="filmsFolderDialog" webkitdirectory>
 			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, dicta et labore temporibus voluptates quae quia magnam natus ad culpa ipsum mollitia voluptatibus cupiditate voluptas suscipit odit nihil modi dignissimos.</div>
 		</div>
 	</div>
@@ -118,6 +119,7 @@
 	<script type="text/javascript" src="js/search.js"></script>
 	<script type="text/javascript" src="js/films-parsedir.js"></script>
 	<script type="text/javascript" src="js/films-detail.js"></script>
+	<script type="text/javascript" src="js/settings.js"></script>
 	<script src="http://127.0.0.1:35729/livereload.js?snipver=1"></script>
 	<!-- <script type="text/javascript" src="js/libs/bootstrap/dist/js/bootstrap.min.js"></script> -->
 	<!-- <script type="text/javascript" src="js/libs/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script> -->
