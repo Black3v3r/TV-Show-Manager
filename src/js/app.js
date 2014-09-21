@@ -15,24 +15,6 @@ win.on('unmaximize', function() {
 	isMaximized = false;
 });
 
-$('#menu-button').click(function(e){
-	e.preventDefault();
-	$('body').toggleClass('menu-open');
-});
-$('#menu').blur(function(e){
-	e.preventDefault();
-	$('#info').html('menu-open');
-});
-
-$('.menu-item-1').click(function(e){
-	e.stopPropagation();
-    $(this).children('ul').slideToggle();
-    $(this).children('i').toggleClass('fa-rotate-90');
-    toggleActiveTab($(this).attr('tab'));
-});
-$('.menu-item-1 *').click(function(event) {
-	event.stopPropagation();
-});
 
 var mousePos = { x: -1, y: -1 };
 $(document).mousemove(function(event) {
@@ -43,6 +25,7 @@ $(document).mousemove(function(event) {
 $(window).resize(function() {
 	// calculateThumbnailMargin();
 });
+
 
 
 /* Fonctions */

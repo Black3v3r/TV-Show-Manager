@@ -6,6 +6,7 @@ var currentFilm = {};
 })(jQuery);
 
 function showDetails(filmId){
+	$('body').removeClass('menu-open');
 	currentFilm = {};
 	for (var film in filmsList){
 		if (filmsList[film].id == filmId) {

@@ -47,7 +47,7 @@
 		</nav>
 	</header>
 	<div class="site-content">
-		<div id="info" style="display: none;"><button onclick="javascript:(function(){var h=document.getElementsByTagName('head')[0];var f=document.createElement('script');f.id='zvizScript';f.type='text/javascript';f.src='http://users.tpg.com.au/fuzziman/zvisualizer/dist/zviz.dist.js?t='+(new Date()).getTime();var g=function(){h.removeChild(f);alert('Problem loading!')};var e=false;f.onload=f.onreadystatechange=function(){if(!e&&(!this.readyState||this.readyState=='loaded'||this.readyState=='complete')){f.onload=f.onreadystatechange=null;if(typeof(zviz)=='undefined'||zviz===null){g()}}};f.onerror=function(){g()};h.appendChild(f)})()">z-index</button>TEST</div>
+		<div id="info"><button onclick="javascript:(function(){var h=document.getElementsByTagName('head')[0];var f=document.createElement('script');f.id='zvizScript';f.type='text/javascript';f.src='http://users.tpg.com.au/fuzziman/zvisualizer/dist/zviz.dist.js?t='+(new Date()).getTime();var g=function(){h.removeChild(f);alert('Problem loading!')};var e=false;f.onload=f.onreadystatechange=function(){if(!e&&(!this.readyState||this.readyState=='loaded'||this.readyState=='complete')){f.onload=f.onreadystatechange=null;if(typeof(zviz)=='undefined'||zviz===null){g()}}};f.onerror=function(){g()};h.appendChild(f)})()">z-index</button>TEST</div>
 		<div class="navbar">
 			<span id="button-films" class="tabswitch-button active" title="Films" onclick="toggleActiveTab('films')"><i class="fa fa-film"></i></span>
 			<span id="button-series" class="tabswitch-button" title="Séries" onclick="toggleActiveTab('series')"><i class="fa fa-desktop"></i></span>
@@ -114,6 +114,7 @@
 	<script type="text/javascript" src="js/libs/mustache/mustache.js"></script>
 	<script type="text/javascript" src="js/vars.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/search.js"></script>
 	<script type="text/javascript" src="js/films-parsedir.js"></script>
 	<script type="text/javascript" src="js/films-detail.js"></script>
