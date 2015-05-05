@@ -11,7 +11,9 @@ var films = {
 var series = {
 	list: []
 };
-var config = {};
+var config = {
+	filmsFolder : ""
+};
 var azerty = "LOLOL";
 var playerPath = "C:\\Program Files (x86)\\VideoLAN\\VLC\\vlc.exe";
 var filmsFolder = "F:\\Videos\\Films";

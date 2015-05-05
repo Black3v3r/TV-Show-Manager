@@ -48,11 +48,17 @@
 	</header>
 	<div class="site-content">
 		<div id="info"><button onclick="javascript:(function(){var h=document.getElementsByTagName('head')[0];var f=document.createElement('script');f.id='zvizScript';f.type='text/javascript';f.src='http://users.tpg.com.au/fuzziman/zvisualizer/dist/zviz.dist.js?t='+(new Date()).getTime();var g=function(){h.removeChild(f);alert('Problem loading!')};var e=false;f.onload=f.onreadystatechange=function(){if(!e&&(!this.readyState||this.readyState=='loaded'||this.readyState=='complete')){f.onload=f.onreadystatechange=null;if(typeof(zviz)=='undefined'||zviz===null){g()}}};f.onerror=function(){g()};h.appendChild(f)})()">z-index</button>TEST</div>
+
+		<!-- Navbar -->
 		<div class="navbar">
-			<span id="button-films" class="tabswitch-button active" title="Films" onclick="toggleActiveTab('films')"><i class="fa fa-film"></i></span>
-			<span id="button-series" class="tabswitch-button" title="Séries" onclick="toggleActiveTab('series')"><i class="fa fa-desktop"></i></span>
-			<span id="button-settings" class="tabswitch-button" title="Paramètres" onclick="toggleActiveTab('settings')"><i class="fa fa-sliders"></i></span>
+			<!--<div class="navbar-container">-->
+				<span id="button-films" class="tabswitch-button active" title="Films" onclick="toggleActiveTab('films')"><i class="fa fa-film"></i></span>
+				<span id="button-series" class="tabswitch-button" title="Séries" onclick="toggleActiveTab('series')"><i class="fa fa-desktop"></i></span>
+				<span id="button-settings" class="tabswitch-button" title="Paramètres" onclick="toggleActiveTab('settings')"><i class="fa fa-sliders"></i></span>
+			<!--</div>-->
 		</div>
+
+		<!-- Content -->
 		<div id="content-films" class="container-body active" style="display: none;">
 			{{#films-list}}
 			<span class="film-thumbnail-container" onclick="films.showDetails('{{ id }}')">

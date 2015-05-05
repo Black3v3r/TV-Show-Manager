@@ -11,7 +11,10 @@ $('#menu-button').click(function(e){
 });
 $('#menu').mouseleave(function(e){
 	e.preventDefault();
-	$('body').removeClass('menu-open');
+	setTimeout(function() {
+		$('body').removeClass('menu-open');
+	}
+	, 250);
 });
 
 $('.menu-item-1').click(function(e){

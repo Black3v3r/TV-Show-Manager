@@ -20,6 +20,31 @@ win.on('unmaximize', function() {
 	isMaximized = false;
 });
 
+$('.header-menubar').hover(function(event) {
+	var text = 'translateY(' + (parseInt($(this).height()) + 10) + 'px)';
+	console.log("header hover: " + text);
+	// $('.navbar').css('transform', 'translateY(0)');
+	$('.navbar').addClass('active');
+}).mouseleave(function(event) {
+	setTimeout(function() {
+		if(!$('.navbar').is(':hover'))
+		{
+			$('.navbar').removeClass('active');
+		}
+	}, 1200);
+});
+
+$('.navbar').mouseleave(function(event) {
+	setTimeout(function() {
+			$(this).removeClass('active');
+
+	}, 1200);
+}).click(function() {
+	setTimeout(function() {
+			$('.navbar').removeClass('active');
+
+	}, 250);
+});
 
 var mousePos = { x: -1, y: -1 };
 $(document).mousemove(function(event) {

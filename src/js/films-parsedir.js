@@ -57,6 +57,9 @@ films = {
 					});
 					films.genres.sort();
 					console.log(films.genres);
+					for(var i = 0; 180 * i <= $(window).width(); i++) {
+						$('#content-films').append('<span class="film-thumbnail-container" ></span>');
+					}
 					/*for(var i in films.list){
 						for(var j in films.list[i].genres){
 							films.addGenre(films.list[i].genres[j]);

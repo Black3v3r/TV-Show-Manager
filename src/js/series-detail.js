@@ -28,6 +28,10 @@ films.showDetails = function(filmId){
 	});
 	$('#films-detail').fadeIn();
 };
+
+
+
+/*
 // Create an empty menu
 var menu_rc = new gui.Menu();
 
@@ -74,7 +78,7 @@ function changeFilm(oldId, newId) {
 				films.list[i] = results;
 				films.list[i].dir_path = dir_path;
 				films.list[i].queryTitle = queryTitle;
-				films.showDetails(newId);
+				showDetails(newId);
 				var filmsList_str = JSON.stringify(films.list);
 				fs.writeFileSync(path.join(filmsFolder, 'library.json'), filmsList_str, "UTF-8");
 				win.reloadIgnoringCache();
@@ -101,4 +105,4 @@ $('#films-detail').on('click', '.play', function(e){
 		}
 		return true;
 	});
-});
+});*/
