@@ -4,7 +4,7 @@ var isMaximized = false;
 
 /* Thigns to do once */
 
-fs.readFile('config/config.json', 'utf-8', function(err, data){
+fs.readFile(path.join(execPath, 'config','config.json'), 'utf-8', function(err, data){
 	if (err) throw err;
 	config = JSON.parse(data);
 	console.log(config);

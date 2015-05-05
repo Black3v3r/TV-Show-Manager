@@ -3,6 +3,8 @@ films = {
 	compteur : 0,
 	nbFilms : 0,
 	template : $('#content-films').html(),
+	a : 0,
+	genres : [],
 
 
 	getDirectories : function() {
@@ -13,7 +15,7 @@ films = {
 
 	refreshLibrary : function(){
 		var dirs = this.getDirectories();
-		nbFilm = dirs.length;
+		films.nbFilms = dirs.length;
 		for(var i in dirs){
 			this.findData(dirs[i], i);
 			console.log("TOUR " + i + "  " + dirs[i]);
@@ -45,39 +47,72 @@ films = {
 							$('.film-thumbnail-container').eq(film).remove();
 						}
 					}
+					$.each(films.list, function(i, v){
+						if (v.genres !== undefined) {
+							$.each(v.genres, function(j, w){
+								films.addGenre(w.name);
+								// console.log(w.name);
+							});
+						}
+					});
+					films.genres.sort();
+					console.log(films.genres);
+					/*for(var i in films.list){
+						for(var j in films.list[i].genres){
+							films.addGenre(films.list[i].genres[j]);
+						}
+					}*/
 				});
 			} else {
 				this.refreshLibrary();
 			}
 		});
-	},
+},
 
-	addToList : function(queryTitle, data,Tour) {
-		compteur++;
-		films.list[Tour] = data;
-		films.list[Tour].queryTitle = queryTitle;
-		films.list[Tour].hidden = false;
-		films.list[Tour].dir_path = path.join(config.filmsFolder, queryTitle);
-		// $('#content-films').html(Mustache.render(template, {'films-list' : films.list})).removeAttr('style');
-		if (compteur == nbFilm) {
-			var filmsList_str = JSON.stringify(films.list);
-			fs.writeFileSync(path.join(config.filmsFolder, 'library.json'), filmsList_str, "UTF-8");
-		}
-	},
-
-
-	findData : function(queryTitle, Tour) {
-		tmdb.search('movie', {query: queryTitle, language: 'fr'}, function (err, results) {
-			if (results.results[0] === undefined ) {
-				results.title = queryTitle;
-				results.poster_path = "img/movie-placeholder.png";
-				this.addToList(queryTitle, results,Tour);
-			} else {
-				tmdb.infos('movie', results.results[0].id, {language: 'fr'}, function (err, results) {
-					this.addToList(queryTitle, results, Tour);
-				});
+addToList : function(queryTitle, data,Tour) {
+	films.compteur++;
+	films.list[Tour] = data;
+	films.list[Tour].queryTitle = queryTitle;
+	films.list[Tour].hidden = false;
+	films.list[Tour].dir_path = path.join(config.filmsFolder, queryTitle);
+	// $('#content-films').html(Mustache.render(template, {'films-list' : films.list})).removeAttr('style');
+	if (films.compteur == films.nbFilms) {
+		/*for(var i in films.list){
+			for(var j in films.list[i].genres){
+				films.addGenre(films.list[i].genres[j]);
 			}
-		});
+		}*/
+		var filmsList_str = JSON.stringify(films.list);
+		fs.writeFileSync(path.join(config.filmsFolder, 'library.json'), filmsList_str, "UTF-8");
 	}
+},
+
+
+findData : function(queryTitle, Tour) {
+	tmdb.search('movie', {query: queryTitle, language: 'fr'}, function (err, results) {
+		if (results.results[0] === undefined ) {
+			results.title = queryTitle;
+			results.poster_path = "img/movie-placeholder.png";
+			this.addToList(queryTitle, results,Tour);
+		} else {
+			tmdb.infos('movie', results.results[0].id, {language: 'fr'}, function (err, results) {
+				this.addToList(queryTitle, results, Tour);
+			});
+		}
+	});
+},
+
+addGenre : function(genre) {
+	// console.log(genre);
+	var found = 0;
+	for(var i in films.genres){
+		if (genre == films.genres[i]) {
+			found++;
+		}
+	}
+	if (found === 0) {
+		films.genres[films.a++] = genre;
+	}
+}
 
 };

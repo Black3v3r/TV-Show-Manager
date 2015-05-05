@@ -19,5 +19,8 @@ $('#menu-search-input').keyup(function(event){
 			$(this).parent().fadeOut();
 		}
 	});
+}).on('search', function(event) {
+	if ('' == this.value) {
+		$('.film-thumbnail').fadeIn();
+	}
 });
-

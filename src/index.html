@@ -102,12 +102,24 @@
 
 		<div id="content-series" class="container-body">
 			<span style="font-size: 2em">Séries</span>
-			<div>Illo aut dolorem, dicta cum, distinctio quaerat eos libero optio nesciunt. Perferendis quos, mollitia vitae ea natus saepe sequi reiciendis recusandae dolore, laborum praesentium id facilis modi soluta, suscipit. Itaque.</div>
+			{{# series-list }}
+			<span class="show-thumbnail-container">
+				<span class="overlay"></span>
+				<span class="show-thumbnail">
+					<span class="poster">
+						<img src="{{ poster_path }}" class="picture" alt="{{ title }}">
+					</span>
+					<span class="title" title="{{title}}">{{title}}</span>
+				</span>
+			</span>
+			{{/ series-list }}
 		</div>
 		<div id="content-settings" class="container-body">
 			<span style="font-size: 2em; display: block">Paramètres</span>
-			<button onclick="refreshLibrary()">Refresh</button><br>
+			<button onclick="films.refreshLibrary()">Refresh Films</button><br>
+			<button onclick="series.refreshLibrary()">Refresh Series</button><br>
 			<input type="file" name="" id="filmsFolderDialog" webkitdirectory>
+			<input type="file" name="" id="seriesFolderDialog" webkitdirectory>
 			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, dicta et labore temporibus voluptates quae quia magnam natus ad culpa ipsum mollitia voluptatibus cupiditate voluptas suscipit odit nihil modi dignissimos.</div>
 		</div>
 	</div>
@@ -119,6 +131,7 @@
 	<script type="text/javascript" src="js/search.js"></script>
 	<script type="text/javascript" src="js/films-parsedir.js"></script>
 	<script type="text/javascript" src="js/films-detail.js"></script>
+	<script type="text/javascript" src="js/series-parsedir.js"></script>
 	<script type="text/javascript" src="js/settings.js"></script>
 	<script src="http://127.0.0.1:35729/livereload.js?snipver=1"></script>
 	<!-- <script type="text/javascript" src="js/libs/bootstrap/dist/js/bootstrap.min.js"></script> -->

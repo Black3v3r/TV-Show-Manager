@@ -15,6 +15,13 @@ $('#filmsFolderDialog').change(function(event) {
 	saveSettigns();
 });
 
+$('#seriesFolderDialog').change(function(event) {
+	console.log($(this).val());
+	config.seriesFolder = $(this).val();
+	series.parseDir();
+	saveSettigns();
+});
+
 function saveSettigns(){
-	fs.writeFileSync('config/config.json', JSON.stringify(config), 'utf-8');
+	fs.writeFileSync(path.join(execPath, 'config','config.json'), JSON.stringify(config), 'utf-8');
 }

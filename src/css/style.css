@@ -142,15 +142,18 @@ header {
   opacity: 0.8;
   cursor: pointer; }
 
-/* line 143, ../_sass/_header.scss */
-#menu-list * {
-  margin: 5px auto;
-  list-style-type: none; }
-/* line 148, ../_sass/_header.scss */
-#menu-list .menu-item-1 ul {
-  display: none; }
+/* line 142, ../_sass/_header.scss */
+#menu-list {
+  cursor: pointer; }
+  /* line 144, ../_sass/_header.scss */
+  #menu-list * {
+    margin: 5px auto;
+    list-style-type: none; }
+  /* line 149, ../_sass/_header.scss */
+  #menu-list .menu-item-1 ul {
+    display: none; }
 
-/* line 155, ../_sass/_header.scss */
+/* line 156, ../_sass/_header.scss */
 .menu-open #menu {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -346,7 +349,42 @@ header {
   #search-others-films .button-close {
     cursor: pointer; }
 
-/* line 7, ../_sass/style.scss */
+/* line 1, ../_sass/_scrollbar.scss */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 45%, rgba(255, 255, 255, 0.2) 45%, rgba(255, 255, 255, 0.2) 55%, rgba(0, 0, 0, 0) 55%); }
+  /* line 7, ../_sass/_scrollbar.scss */
+  ::-webkit-scrollbar-track:hover {
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 45%, rgba(255, 255, 255, 0.8) 45%, rgba(255, 255, 255, 0.8) 55%, rgba(0, 0, 0, 0) 55%);
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; }
+
+/* line 13, ../_sass/_scrollbar.scss */
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: rgba(245, 245, 245, 0); }
+
+/* line 19, ../_sass/_scrollbar.scss */
+::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(128, 128, 128, 0.3);
+  opacity: 0.5; }
+  /* line 27, ../_sass/_scrollbar.scss */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    border: 2px solid rgba(128, 128, 128, 0.8); }
+
+/* line 8, ../_sass/style.scss */
 body {
   /*height: 100%;
   width: 100%;*/
@@ -358,7 +396,7 @@ body {
   cursor: default; }
 
 /* Boutons de navigation */
-/* line 20, ../_sass/style.scss */
+/* line 21, ../_sass/style.scss */
 .navbar {
   display: block;
   text-align: center;
@@ -368,30 +406,30 @@ body {
   position: fixed;
   width: 100%; }
 
-/* line 30, ../_sass/style.scss */
+/* line 31, ../_sass/style.scss */
 .tabswitch-button {
   color: white;
   background-color: #01587A;
-  padding: 4px 10px;
+  padding: 4px 15px;
   margin: 0;
   border: 1px solid white;
   margin-left: -5.5px;
   cursor: pointer;
   overflow: hidden; }
-  /* line 40, ../_sass/style.scss */
+  /* line 41, ../_sass/style.scss */
   .tabswitch-button:first-child {
     border-radius: 5px 0 0 5px;
     margin-left: 0px !important; }
-  /* line 44, ../_sass/style.scss */
+  /* line 45, ../_sass/style.scss */
   .tabswitch-button:last-child {
     border-radius: 0 5px 5px 0; }
-  /* line 47, ../_sass/style.scss */
+  /* line 48, ../_sass/style.scss */
   .tabswitch-button.active {
     background-color: white;
     color: #01587A; }
 
 /* Corps de page */
-/* line 55, ../_sass/style.scss */
+/* line 56, ../_sass/style.scss */
 .site-content {
   position: absolute;
   top: 35px;
@@ -401,21 +439,21 @@ body {
   padding-top: 35px;
   overflow: overlay; }
 
-/* line 65, ../_sass/style.scss */
+/* line 66, ../_sass/style.scss */
 .container-body {
   position: relative;
   display: none; }
-  /* line 68, ../_sass/style.scss */
+  /* line 69, ../_sass/style.scss */
   .container-body.active {
     display: block; }
 
 /* Tout le reste */
-/* line 74, ../_sass/style.scss */
+/* line 75, ../_sass/style.scss */
 [placeholder]:focus::-webkit-input-placeholder {
   transition: opacity 0.5s ease;
   opacity: 0; }
 
-/* line 79, ../_sass/style.scss */
+/* line 80, ../_sass/style.scss */
 #info {
   background-color: #00f;
   top: 35px;
@@ -423,6 +461,6 @@ body {
   z-index: 1337;
   position: fixed; }
 
-/* line 88, ../_sass/style.scss */
+/* line 89, ../_sass/style.scss */
 .hidden {
   display: none; }

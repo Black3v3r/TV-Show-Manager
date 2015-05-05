@@ -3,6 +3,7 @@
 @import "header";
 @import "view-films";
 @import "films-detail";
+@import "scrollbar";
 
 body{
 	/*height: 100%;
@@ -30,7 +31,7 @@ body{
 .tabswitch-button{
 	color: white;
 	background-color: $body-bg;
-	padding: 4px 10px;
+	padding: 4px 15px;
 	margin: 0;
 	border: 1px solid white;
 	margin-left: -5.5px;

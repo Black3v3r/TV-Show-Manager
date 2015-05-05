@@ -74,17 +74,40 @@ module.exports = function(grunt){
 		copy: {
 			build: {
 				files: [
-					{expand: true, cwd: 'src/', src: ['*'], dest: '.build-cache/', filter: 'isFile'},
-					{expand: true, cwd: 'src/', src: ['css/**'], dest: '.build-cache/'},
-					{expand: true, cwd: 'src/', src: ['js/*'], dest: '.build-cache/', filter: 'isFile'},
-					{expand: true, cwd: 'src/', src: ['js/libs/**/*.min.*'], dest: '.build-cache/'},
-					{expand: true, cwd: 'src/', src: ['js/libs/mustache/mustache.js'], dest: '.build-cache/'},
-					{expand: true, cwd: 'src/', src: ['js/libs/fontawesome/fonts/**'], dest: '.build-cache/'},
-					{expand: true, src: 'node_modules/allocine-api/**', dest: '.build-cache/'},
-					{expand: true, cwd: 'src/', src: ['locales/**'], dest: '.build-cache/'}
-
+				{expand: true, cwd: 'src/', src: ['*'], dest: '.build-cache/', filter: 'isFile'},
+				{expand: true, cwd: 'src/', src: ['css/**'], dest: '.build-cache/'},
+				{expand: true, cwd: 'src/', src: ['img/**'], dest: '.build-cache/'},
+				{expand: true, cwd: 'src/', src: ['js/*'], dest: '.build-cache/', filter: 'isFile'},
+				{expand: true, cwd: 'src/', src: ['js/libs/**/*.min.*'], dest: '.build-cache/'},
+				{expand: true, cwd: 'src/', src: ['js/libs/mustache/mustache.js'], dest: '.build-cache/'},
+				{expand: true, cwd: 'src/', src: ['js/libs/fontawesome/fonts/**'], dest: '.build-cache/'},
+				{expand: true, src: 'node_modules/tmdb-3/**', dest: '.build-cache/'},
+				{expand: true, cwd: 'src/', src: ['locales/**'], dest: '.build-cache/'}
+				// {expand: true, cwd: 'src/', src: ['config/**'], dest: '.build-cache/'}
 				]
-			}
+			},
+			win: {
+				files: [
+				{expand: true, cwd: 'src/', src: ['config/**'], dest: 'dist/TV Show Manager/win'}
+				]
+			},
+			osx: {
+				files: [
+				{expand: true, cwd: 'src/', src: ['config/**'], dest: 'dist/TV Show Manager/osx'}
+				]
+			},
+			linux: {
+				files: [
+				{expand: true, cwd: 'src/', src: ['config/**'], dest: 'dist/TV Show Manager/linux'}
+				]
+			},
+			all: {
+				files: [
+				{expand: true, cwd: 'src/', src: ['config/**'], dest: 'dist/TV Show Manager/win'},
+				{expand: true, cwd: 'src/', src: ['config/**'], dest: 'dist/TV Show Manager/osx'},
+				{expand: true, cwd: 'src/', src: ['config/**'], dest: 'dist/TV Show Manager/linux'}
+				]
+			},
 		},
 
 		nodewebkit: {
@@ -122,7 +145,7 @@ module.exports = function(grunt){
 
 /*	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
-*/
+	*/
 	grunt.registerTask('default', ['uglify', 'jshint', 'cssmin']);
 	grunt.registerTask('createbuildcache', ['clean:buildcache', 'copy:build', 'clean:srcbuildcache', 'update-json']);
 	grunt.registerTask('buildapp', 'build nw app, platform in argument (buildapp:win).', function(pl) {
@@ -132,18 +155,19 @@ module.exports = function(grunt){
 			grunt.task.run('clean:' + pl + 'dist');
 			grunt.task.run('createbuildcache');
 			grunt.task.run('nodewebkit:' + pl);
+			grunt.task.run('copy:' + pl);
 			grunt.task.run('clean:buildcache');
 		}
 	});
 	grunt.registerTask('update-json', function(){
 		var projectFile = ".build-cache/package.json";
-				if (!grunt.file.exists(projectFile)) {
-						grunt.log.error("file " + projectFile + " not found");
-						return true;//return false to abort the execution
-				}
-				var project = grunt.file.readJSON(projectFile);//get file as json object
-				project.window.toolbar = false;
-				project.window.frame = false;
-				grunt.file.write(projectFile, JSON.stringify(project, null, 2));//serialize it back to file
+		if (!grunt.file.exists(projectFile)) {
+			grunt.log.error("file " + projectFile + " not found");
+			return true;
+		}
+		var project = grunt.file.readJSON(projectFile);
+		project.window.toolbar = true;
+		project.window.frame = true;
+		grunt.file.write(projectFile, JSON.stringify(project, null, 2));
 	});
 }

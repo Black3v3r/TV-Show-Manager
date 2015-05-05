@@ -8,7 +8,12 @@ var exec = require('child_process').exec;
 var films = {
 	list: []
 };
+var series = {
+	list: []
+};
 var config = {};
 var azerty = "LOLOL";
 var playerPath = "C:\\Program Files (x86)\\VideoLAN\\VLC\\vlc.exe";
 var filmsFolder = "F:\\Videos\\Films";
+var execPath = path.dirname( process.execPath );
+console.log("execPath: " + execPath);
